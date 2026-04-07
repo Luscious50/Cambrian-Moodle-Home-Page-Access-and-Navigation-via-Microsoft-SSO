@@ -37,7 +37,13 @@ This repository is used to store automation files, supporting evidence, and proj
 
 ## Running Automated Tests
 Automated tests are located in the `/tests` folder.
+### Selected Tool
+The project currently uses **Playwright** for early UI smoke automation.
 
+### Install Dependencies
+```bash
+npm install
+npx playwright install
 > Note: The testing framework and run commands will be finalized and updated here during Check-In 2. The group is currently evaluating tools such as Playwright or Selenium for UI tests and Jest or PyTest for logic-level tests.
 
 ## Project Links
