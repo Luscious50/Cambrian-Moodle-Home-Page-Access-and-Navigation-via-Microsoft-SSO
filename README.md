@@ -37,19 +37,23 @@ This repository is used to store automation files, supporting evidence, and proj
 
 ## Running Automated Tests
 Automated tests are located in the `/tests` folder.
+
 ### Selected Tool
 The project currently uses **Playwright** for early UI smoke automation.
 
-### Install Dependencies
-```bash
-npm install
-npx playwright install
 > Note: The testing framework and run commands will be finalized and updated here during Check-In 2. The group is currently evaluating tools such as Playwright or Selenium for UI tests and Jest or PyTest for logic-level tests.
 
 ## Project Links
 - **Shared Word Report:** https://1drv.ms/w/c/ab67e2f9b511b072/IQCVswnbNCUfSJWQ0SZsLn8KARj1Ms9xrVcR_8HpFAlM5XM?e=CUEnVf
 - **GitHub Repository:** https://github.com/Luscious50/Cambrian-Moodle-Home-Page-Access-and-Navigation-via-Microsoft-SSO
 - **Azure DevOps Board:** https://dev.azure.com/CMPMAPS/MAPS/_workitems/recentlyupdated/
+  
+### Install Dependencies
+```bash
+npm install
+npx playwright install
+
+
 
 ## Notes
 This repository supports the written report and Azure DevOps Board for the capstone project. All deliverables are intended to align with the same workflows, evidence, and findings.
