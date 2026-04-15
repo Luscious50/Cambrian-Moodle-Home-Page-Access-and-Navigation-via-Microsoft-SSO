@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-MOODLE_URL = "https://cambrian.mrooms.net"
+MOODLE_URL = https://moodle.cambriancollege.ca
 
 def test_login_page_loads():
     driver = webdriver.Chrome()
