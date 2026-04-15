@@ -6,8 +6,8 @@
 # ============================================================
 import requests
 
-MOODLE_URL = "https://cambrian.mrooms.net"
-API_TOKEN = "YOUR_TOKEN_HERE"  # Replace with your token from Moodle Security Keys
+MOODLE_URL = "https://moodle.cambriancollege.ca"
+API_TOKEN = "YOUR_TOKEN_HERE"  # Paste only the raw Moodle token value here, not the "Webservice-..." label
 
 def test_moodle_api():
     endpoint = f"{MOODLE_URL}/webservice/rest/server.php"
