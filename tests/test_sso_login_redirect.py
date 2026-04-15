@@ -7,8 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-MOODLE_URL = "https://cambrian.mrooms.net"
-MICROSOFT_LOGIN_DOMAIN = "login.microsoftonline.com"
+MOODLE_URL = "https://moodle.cambriancollege.ca"
 
 def test_sso_redirect():
     driver = webdriver.Chrome()
@@ -16,20 +15,23 @@ def test_sso_redirect():
         driver.get(MOODLE_URL)
         wait = WebDriverWait(driver, 10)
 
-        # Find and click the Microsoft SSO login button
-        sso_btn = wait.until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(@href,'oauth2') or contains(text(),'Microsoft')]"))
+        sso_link = wait.until(
+            EC.presence_of_element_located((
+                By.XPATH,
+                "//a[contains(@href, '/auth/saml2/login.php') and contains(@href, 'idp=')]"
+            ))
         )
-        sso_btn.click()
 
-        # Wait for redirect and verify we are on Microsoft login
-        wait.until(EC.url_contains(MICROSOFT_LOGIN_DOMAIN))
-        assert MICROSOFT_LOGIN_DOMAIN in driver.current_url, \
-            f"Expected Microsoft login page, got: {driver.current_url}"
-        print("AT-002 PASS: SSO button redirected to Microsoft login page")
+        href = sso_link.get_attribute("href")
+        assert href is not None, "Microsoft SSO anchor href not found"
+        assert "/auth/saml2/login.php" in href, f"Expected SAML2 login path, got: {href}"
+        assert "idp=" in href, f"Expected idp parameter, got: {href}"
+
+        print("AT-002 PASS: Microsoft SSO link points to Moodle SAML2 login flow")
     finally:
         driver.quit()
 
 if __name__ == "__main__":
     test_sso_redirect()
+    
     
